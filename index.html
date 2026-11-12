@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A graphic design portfolio presented as a playful retro desktop and game library.">
+  <meta name="theme-color" content="#17132e">
+  <title>PLAYER ONE — Graphic Design Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="projects.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main class="screen-frame">
+    <section class="boot-screen" id="bootScreen" aria-label="Portfolio welcome screen">
+      <div class="boot-panel">
+        <p class="boot-kicker">INDEPENDENT GRAPHIC DESIGNER PRESENTS</p>
+        <div class="boot-logo" aria-label="Player One">PLAYER<span>ONE</span></div>
+        <div class="boot-pixel-art" aria-hidden="true">
+          <div class="pixel-sun"></div><div class="pixel-mountain mountain-one"></div>
+          <div class="pixel-mountain mountain-two"></div><div class="pixel-ground"></div>
+          <div class="pixel-character"><i></i><b></b></div>
+        </div>
+        <p class="boot-message">A PORTFOLIO QUEST / PRESS START TO EXPLORE</p>
+        <button class="start-button" id="startButton" type="button"><span>▶</span> START PORTFOLIO</button>
+        <p class="boot-footer">DESIGNED WITH CURIOSITY · EST. 2026</p>
+      </div>
+    </section>
+
+    <section class="desktop hidden" id="desktop" aria-label="Interactive portfolio desktop">
+      <header class="topbar">
+        <div class="topbar-brand"><span class="brand-pixel">▣</span> PIXEL DESKTOP <span class="version">v1.0</span></div>
+        <div class="topbar-center">GRAPHIC DESIGNER / PORTUGAL</div>
+        <div class="topbar-right"><span class="online-dot"></span> SYSTEM ONLINE <span id="topClock">00:00</span></div>
+      </header>
+
+      <div class="desktop-wallpaper">
+        <div class="wallpaper-grid" aria-hidden="true"></div>
+        <div class="wallpaper-orbit orbit-one" aria-hidden="true"></div>
+        <div class="wallpaper-orbit orbit-two" aria-hidden="true"></div>
+        <div class="desktop-note">
+          <span class="note-label">WELCOME, PLAYER 01</span>
+          <strong>Make something<br>worth looking at.</strong>
+          <small>CLICK AN ICON TO OPEN A FOLDER</small>
+        </div>
+
+        <div class="desktop-icons" aria-label="Desktop shortcuts">
+          <button class="desktop-icon" data-open="projects" type="button">
+            <span class="desktop-icon-art folder-art"><i></i></span><span>MY PROJECTS</span>
+          </button>
+          <button class="desktop-icon" data-open="about" type="button">
+            <span class="desktop-icon-art avatar-art"><i>01</i></span><span>ABOUT ME</span>
+          </button>
+          <button class="desktop-icon" data-open="skills" type="button">
+            <span class="desktop-icon-art inventory-art"><i>✦</i></span><span>SKILL TREE</span>
+          </button>
+          <button class="desktop-icon" data-open="contact" type="button">
+            <span class="desktop-icon-art mail-art"><i>✉</i></span><span>CONTACT.EXE</span>
+          </button>
+          <button class="desktop-icon recycle-icon" data-open="credits" type="button">
+            <span class="desktop-icon-art recycle-art"><i>↻</i></span><span>READ_ME.TXT</span>
+          </button>
+        </div>
+
+        <div class="window-layer" id="windowLayer" aria-live="polite"></div>
+
+        <aside class="desktop-hint"><span class="hint-key">TIP</span> OPEN A FOLDER OR GAME TO EXPLORE THE PORTFOLIO</aside>
+      </div>
+
+      <footer class="taskbar">
+        <button class="start-menu-button" id="startMenuButton" type="button"><span class="start-glyph">▦</span> START</button>
+        <div class="taskbar-apps" id="taskbarApps" aria-label="Open windows"></div>
+        <div class="taskbar-tray"><span class="tray-signal">▮▮▮</span><span id="taskClock">00:00</span></div>
+      </footer>
+
+      <div class="start-menu hidden" id="startMenu">
+        <div class="start-menu-head"><span class="mini-start-glyph">▦</span><div><strong>PLAYER ONE</strong><small>PORTFOLIO SYSTEM</small></div></div>
+        <button data-open="projects" type="button"><span>▣</span> PROJECT LIBRARY</button>
+        <button data-open="about" type="button"><span>◉</span> ABOUT THE PLAYER</button>
+        <button data-open="skills" type="button"><span>✦</span> SKILL TREE</button>
+        <button data-open="contact" type="button"><span>✉</span> SEND A MESSAGE</button>
+        <div class="start-menu-foot">PIXEL DESKTOP / BUILD 1996–2026</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
