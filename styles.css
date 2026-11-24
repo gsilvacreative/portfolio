@@ -1,17 +1,19 @@
 /* PIXEL DESKTOP — edit the palette here to customise the whole site */
 :root {
-  --night: #17132e;
-  --night-2: #211c43;
-  --panel: #f7edda;
-  --panel-2: #e8dcc4;
-  --ink: #211d35;
-  --purple: #7c5ce0;
-  --purple-dark: #4b378f;
-  --cyan: #65e6d3;
-  --lime: #c6f36a;
-  --pink: #ff729e;
-  --orange: #ffad68;
-  --line: #30294f;
+  --night: #0F1A20;
+  --night-2: #1C303C;
+  --panel: #E9F1F7;
+  --panel-2: #D9E5ED;
+  --ink: #0F1A20;
+  --purple: #3F7CAC;
+  --purple-dark: #2E5E80;
+  --cyan: #8EADBF;
+  --lime: #B99A70;
+  --pink: #B99A70;
+  --orange: #B99A70;
+  --line: #AFC2D0;
+  --gold: #B99A70;
+  --gold-light: #D6C3A5;
   --pixel: "Press Start 2P", "Courier New", monospace;
   --terminal: "VT323", "Courier New", monospace;
 }
@@ -280,4 +282,169 @@ button { cursor: pointer; }
   .game-cover { height:135px; }
   .case-copy-grid { grid-template-columns:1fr; }
   .topbar-brand { font-size:6px; }
+}
+
+
+/* ==========================================================
+   CLASSIC PALETTE OVERRIDES
+   These rules restyle the original interface components while
+   retaining the existing layout, interactions and animations.
+   ========================================================== */
+
+body { background: #080F13; color: var(--panel); }
+.screen-frame { border-color: #587487; box-shadow: 0 0 0 4px #080F13, 0 22px 80px rgba(0,0,0,.48); }
+.scanlines { opacity: .055; }
+
+/* Boot screen */
+.boot-screen {
+  background: radial-gradient(circle at 50% 43%, rgba(63,124,172,.20), transparent 43%),
+              linear-gradient(145deg, #1B303C, #0F1A20 72%);
+}
+.boot-kicker { color: var(--gold-light, #D6C3A5); }
+.boot-logo { color: #FFFFFF; text-shadow: 4px 4px 0 #2E5E80; }
+.boot-logo span { color: #AFC9DC; }
+.boot-pixel-art { border-color: #7897AD; background: linear-gradient(#29465A 0 57%, #3F7CAC 57% 100%); }
+.pixel-sun { background: #B99A70; box-shadow: 0 0 0 8px rgba(185,154,112,.13), 0 0 30px rgba(185,154,112,.20); }
+.pixel-mountain { border-bottom-color: #7198B5; }
+.mountain-two { border-bottom-color: #294C63; }
+.pixel-ground { background: repeating-linear-gradient(90deg,#162832 0 22px,#243E4D 22px 44px); }
+.pixel-character { background: #AFC9DC; box-shadow: 0 0 0 5px #1B3443; }
+.pixel-character:before { background: #D5B69A; box-shadow: 0 -7px 0 #17232B; }
+.pixel-character i { background: #B99A70; box-shadow: 22px 0 #B99A70; }
+.pixel-character b { background: #17232B; box-shadow: 8px 0 #17232B; }
+.boot-message { color: #DCE7EF; }
+.start-button { border-color: #3F7CAC; background: #3F7CAC; color: #FFFFFF; box-shadow: 4px 4px 0 #233E52; }
+.start-button:hover { background: #2E5E80; box-shadow: 2px 2px 0 #233E52; }
+.start-button span { color: #D6C3A5; }
+.boot-footer { color: #9CB2C1; }
+
+/* Desktop frame, wallpaper and icons */
+.topbar { border-bottom-color: #B9CAD6; }
+.brand-pixel, .start-menu button span { color: #3F7CAC; }
+.version, .topbar-center { color: #657D8D; }
+.online-dot { background: #6C9A83; box-shadow: 0 0 0 3px #D4E4DC; }
+.desktop-wallpaper {
+  background: radial-gradient(ellipse at 78% 20%, rgba(63,124,172,.18), transparent 26%),
+              radial-gradient(ellipse at 73% 75%, rgba(185,154,112,.09), transparent 29%),
+              linear-gradient(135deg, #1B303D 0%, #12232C 54%, #0F1A20 100%);
+}
+.wallpaper-grid {
+  opacity: .10;
+  background-image: linear-gradient(rgba(190,213,229,.28) 1px,transparent 1px),
+                    linear-gradient(90deg,rgba(190,213,229,.28) 1px,transparent 1px);
+}
+.wallpaper-orbit { border-color: rgba(175,201,220,.16); }
+.orbit-two { border-color: rgba(185,154,112,.15); }
+.note-label { color: #D6C3A5; }
+.desktop-note strong { color: #FFFFFF; text-shadow: 3px 3px 0 #244D69; }
+.desktop-note small { color: #A6BAC7; }
+.desktop-icon { color: #FFFFFF; text-shadow: 2px 2px 0 #0A1217; }
+.folder-art { background: #3F7CAC; }
+.folder-art:after { background: #AFC9DC; }
+.avatar-art { border-color: #AFC9DC; background: #29485C; box-shadow: inset 0 0 0 4px #162B38; }
+.avatar-art:before { background: #D5B69A; box-shadow: 0 -6px 0 #17232B; }
+.avatar-art:after { background: #AFC9DC; }
+.avatar-art i { color: #FFFFFF; }
+.inventory-art { background: #28495F; border-color: #8DAFC5; box-shadow: inset 0 0 0 3px #172E3C; }
+.inventory-art i { color: #D6C3A5; }
+.mail-art { background: #E9F1F7; border-color: #FFFFFF; color: #24465D; }
+.recycle-art { border-color: #9CB2C1; color: #C5D5DF; }
+.desktop-hint { color: #C2D0D9; }
+.hint-key { background: #B99A70; color: #0F1A20; }
+
+/* Windows and controls */
+.app-window { border-color: #FFFFFF; box-shadow: 7px 7px 0 rgba(0,0,0,.35), 0 0 0 2px #57758A; }
+.window-titlebar { background: #3F7CAC; color: #FFFFFF; border-bottom-color: #2E5E80; }
+.window-controls button { border-color: #D1DFE8; background: #E9F1F7; color: #0F1A20; box-shadow: 2px 2px 0 #2E5E80; }
+.window-controls button:hover { background: #D6C3A5; }
+.window-status { background: #D9E5ED; border-top-color: #B8C9D4; color: #526A79; }
+
+/* Taskbar and start menu */
+.taskbar { background: #D4E1E9; color: #0F1A20; border-top-color: #FFFFFF; }
+.start-menu-button { border-color: #8FB2CB; background: #3F7CAC; color: #FFFFFF; box-shadow: 2px 2px 0 #315F7E; }
+.start-menu-button:hover { background: #2E5E80; }
+.taskbar-app { border-color: #A8BBC8; background: #E9F1F7; color: #344D5C; }
+.taskbar-app.active { background: #FFFFFF; border-color: #3F7CAC; }
+.taskbar-tray { border-left-color: #AABBC6; }
+.tray-signal { color: #3F7CAC; }
+.start-menu { background: #E9F1F7; color: #0F1A20; border-color: #FFFFFF; }
+.start-menu-head { background: #1C303C; color: #FFFFFF; }
+.mini-start-glyph { color: #D6C3A5; }
+.start-menu-head small { color: #B8C9D4; }
+.start-menu button { color: #0F1A20; }
+.start-menu button:hover { background: #D5E3EC; }
+.start-menu-foot { border-top-color: #BFCED8; color: #687F8E; }
+
+/* Project library and game cartridges */
+.section-kicker { color: #607C8F; }
+.window-heading h2 { color: #172B38; }
+.window-heading p { color: #627987; }
+.library-toolbar { background: #DCE7EF; border-color: #B8C9D4; color: #607381; }
+.library-toolbar strong { color: #2E5E80; }
+.game-card { background: #FFFFFF; border-color: #B8C9D4; box-shadow: 3px 3px 0 #C8D5DE; color: #0F1A20; }
+.game-card:hover, .game-card:focus-visible { box-shadow: 5px 5px 0 #AFC3D1; border-color: #3F7CAC; }
+.game-cover { border-color: rgba(15,26,32,.18); }
+.game-cover:after { background: repeating-linear-gradient(to bottom,transparent 0 5px,rgba(15,26,32,.045) 6px); }
+.cover-halloween { background: linear-gradient(155deg,#233B4B,#3F7CAC 65%,#B99A70); color: #FFFFFF; }
+.cover-halloween .cover-title { text-shadow: 2px 2px #172B38; }
+.cover-halloween .cover-orb { background: #D6C3A5; box-shadow: 0 0 0 10px rgba(214,195,165,.13); }
+.cover-halloween .cover-ghost { background: #F5F8FA; box-shadow: inset -9px 0 #C7D6DF; }
+.cover-halloween .cover-ghost:before { color: #203542; }
+.cover-christmas { background: linear-gradient(135deg,#6A7F83,#284C4B); color: #FFFFFF; }
+.cover-christmas .cover-title { text-shadow: 2px 2px #203638; }
+.cover-christmas .cover-tree { border-bottom-color: #294844; filter: drop-shadow(5px 5px 0 #203638); }
+.cover-christmas .cover-star { color: #D6C3A5; }
+.cover-campaign { background: linear-gradient(125deg,#DCE8ED,#8EADBF 60%,#B99A70); color: #172B38; }
+.cover-campaign .cover-title { text-shadow: 2px 2px rgba(255,255,255,.65); }
+.cover-campaign .cover-shape { border-color: #F5F8FA; }
+.cover-identity { background: linear-gradient(135deg,#14232C,#3F7CAC); color: #E9F1F7; }
+.cover-identity .cover-grid { border-color: rgba(255,255,255,.23); }
+.game-label { background: rgba(255,255,255,.92); color: #203542; }
+.game-meta small { color: #667C89; }
+.game-level { color: #2E5E80; }
+.library-footer { border-top-color: #C3D0D9; color: #718492; }
+
+/* Project case studies */
+.case-cover { border-color: rgba(15,26,32,.20); }
+.case-cover .case-cover-art { color: #FFFFFF; text-shadow: 2px 2px rgba(15,26,32,.45); }
+.case-summary h2 { color: #172B38; }
+.case-summary p { color: #627987; }
+.case-fact { border-top-color: #B9CAD6; }
+.case-label { color: #718593; }
+.case-copy { background: #DDE8EF; border-color: #C4D2DC; }
+.case-copy h3, .case-gallery-head h3 { color: #2E5E80; }
+.case-copy p { color: #354C5A; }
+.case-gallery-head span, .case-footer { color: #718492; }
+.case-footer { border-top-color: #C3D0D9; }
+.gallery-item { background: #D5E1E9; border-color: #9FB3C1; }
+.empty-media { color: #718492; }
+.empty-media-icon { color: #3F7CAC; }
+.palette-chip { border-color: rgba(15,26,32,.2); }
+.empty-project-note { color: #718492; }
+
+/* About, skills and contact */
+.about-avatar { background: linear-gradient(140deg,#1C3443,#3F7CAC); border-color: #8EADBF; }
+.avatar-pixel { background: #B6CCDA; box-shadow: 9px 9px 0 #1A2D39; }
+.avatar-pixel:before { background: #D5B69A; box-shadow: 0 -12px 0 #17232B; }
+.avatar-pixel:after { background: #211D35; box-shadow: 23px 0 #211D35; }
+.about-text p { color: #627987; }
+.about-stat { background: #DCE7EF; }
+.about-stat strong { color: #2E5E80; }
+.about-stat-label { color: #718492; }
+.skill-group { border-color: #C4D2DC; background: #FFFFFF; }
+.skill-group h3 { color: #2E5E80; }
+.skill-tag { background: #E3ECF2; border-color: #C7D5DF; }
+.skill-bar { background: #D5E1E9; border-color: #B5C7D3; }
+.skill-bar i { background: #3F7CAC; }
+.contact-big { background: #1C303C; color: #FFFFFF; }
+.contact-big p { color: #B6C8D4; }
+.contact-details a, .contact-details span { border-color: #B8C9D4; background: #FFFFFF; color: #263E4E; }
+.contact-details a:hover { background: #D6E5EF; border-color: #3F7CAC; }
+.readme-copy { color: #526A79; }
+.readme-copy h2 { color: #203542; }
+.button-pixel { border-color: #2E5E80; background: #3F7CAC; color: #FFFFFF; box-shadow: 3px 3px 0 #B8C9D4; }
+.button-pixel:hover { background: #2E5E80; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
