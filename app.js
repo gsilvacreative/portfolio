@@ -78,6 +78,10 @@
       ? `<div class="case-cover"><img src="${escapeHTML(project.coverImage)}" alt="${escapeHTML(project.title)} cover"></div>`
       : `<div class="case-cover ${escapeHTML(project.coverClass || "")}">${project.coverClass === "cover-halloween" ? '<i class="cover-orb"></i><i class="cover-ghost"></i>' : project.coverClass === "cover-christmas" ? '<i class="cover-tree"></i><i class="cover-star">✦</i>' : project.coverClass === "cover-campaign" ? '<i class="cover-shape"></i>' : '<i class="cover-grid"></i>'}<span class="case-cover-art">${project.coverWords || escapeHTML(project.title)}</span></div>`;
     const palette = (project.palette || []).map(color => `<span class="palette-chip" title="${escapeHTML(color)}" style="background:${escapeHTML(color)}"></span>`).join("");
+    const fileSettings = (window.PORTFOLIO_PROJECT_FILES || {})[project.id] || {};
+    const fullProjectAction = fileSettings.url
+      ? `<div class="full-project-action"><a class="full-project-button" href="file-viewer.html?file=${encodeURIComponent(fileSettings.url)}&title=${encodeURIComponent(project.title)}" target="_blank" rel="noopener noreferrer"><span class="full-project-button-icon" aria-hidden="true">↗</span><span class="full-project-button-copy"><strong>${escapeHTML(fileSettings.label || "VIEW FULL PROJECT")}</strong><small>OPENS IN A NEW TAB · PROJECT PREVIEW</small></span></a></div>`
+      : "";
     const gallery = (project.gallery || []).length
       ? project.gallery.map((src, index) => `<div class="gallery-item"><img src="${escapeHTML(src)}" alt="${escapeHTML(project.title)} project image ${index + 1}" loading="lazy"></div>`).join("")
       : [1,2].map(n => `<div class="gallery-item"><div class="empty-media"><span class="empty-media-icon">▧</span><span class="empty-media-label">ARTWORK SLOT 0${n}</span><small>Add an image path in projects.js</small></div></div>`).join("");
@@ -103,7 +107,8 @@
         <div class="case-gallery-head"><h3>VISUAL ARCHIVE / ARTWORK</h3><span>${String((project.gallery || []).length || 2).padStart(2,"0")} FILES</span></div>
         <div class="gallery-grid">${gallery}</div>
       </section>
-      <div class="case-footer"><span>END OF LEVEL / ${escapeHTML(project.year || "")}</span><span>PLAYER 01 — PORTFOLIO</span></div>`;
+      <div class="case-footer"><span>END OF LEVEL / ${escapeHTML(project.year || "")}</span><span>PLAYER 01 — PORTFOLIO</span></div>
+      ${fullProjectAction}`;
   }
 
   function contentFor(type, data) {

@@ -5,6 +5,32 @@
   - Add gallery images with gallery: ["assets/image-01.jpg", "assets/image-02.jpg"]
   - Use image files you own or have permission to publish.
 */
+/* ==========================================================
+   FULL PROJECT LINKS — EDIT THIS SECTION TO ADD/CHANGE FILES
+   Paste a direct PDF URL or a path to a PDF inside assets/projects/.
+   Example: url: "assets/projects/the-wolf-full-project.pdf"
+   Leave url as an empty string until the file is ready.
+   The "VIEW FULL PROJECT" button appears automatically once a URL is added.
+   ========================================================== */
+window.PORTFOLIO_PROJECT_FILES = {
+  "the-wolf": {
+    url: "", // Add The Wolf PDF or presentation URL here.
+    label: "VIEW FULL PROJECT"
+  },
+  "summer-entertainment": {
+    url: "", // Add Summer Entertainment PDF or presentation URL here.
+    label: "VIEW FULL PROJECT"
+  },
+  "campaigns": {
+    url: "", // Add Campaign Lab PDF or presentation URL here.
+    label: "VIEW FULL PROJECT"
+  },
+  "identity": {
+    url: "", // Add Identity & Print PDF or presentation URL here.
+    label: "VIEW FULL PROJECT"
+  }
+};
+
 window.PORTFOLIO_PROJECTS = [
   {
     id: "the-wolf",

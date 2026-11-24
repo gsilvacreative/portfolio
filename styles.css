@@ -400,3 +400,62 @@ body, button, a, input, textarea, select {
   .window-heading p { font-size: 14px; }
   .case-copy p, .about-text p, .readme-copy { font-size: 13px; }
 }
+
+
+/* Full project link — appears at the end of a case study when configured in projects.js */
+.full-project-action {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #B8C9D4;
+}
+.full-project-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  min-width: min(100%, 285px);
+  padding: 13px 17px;
+  border: 1px solid #2E5E80;
+  background: #3F7CAC;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #B8C9D4;
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.full-project-button:hover,
+.full-project-button:focus-visible {
+  background: #2E5E80;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #AFC2D0;
+  outline: 2px solid #B99A70;
+  outline-offset: 2px;
+}
+.full-project-button-icon {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  border: 1px solid rgba(255,255,255,.65);
+  font: 700 19px/1 "Inter", Arial, sans-serif;
+}
+.full-project-button-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.full-project-button-copy strong {
+  font: 700 10px/1.35 "Space Grotesk", Arial, sans-serif;
+  letter-spacing: .035em;
+}
+.full-project-button-copy small {
+  color: #E9F1F7;
+  font: 600 8px/1.4 "Space Grotesk", Arial, sans-serif;
+  letter-spacing: .035em;
+}
+@media (max-width: 760px) {
+  .full-project-action { justify-content: stretch; }
+  .full-project-button { width: 100%; }
+}

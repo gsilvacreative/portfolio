@@ -58,3 +58,29 @@ This is an original retro-desktop-inspired interface, not an exact recreation of
 
 ## Typography
 The updated interface uses **Space Grotesk** for headings and interface labels, and **Inter** for body copy. The retro character is retained through the desktop layout, pixel-inspired icon artwork, window controls and scanline treatment rather than hard-to-read display fonts. An internet connection is required to load the Google Fonts; system sans-serif fallbacks are included.
+
+
+## 6. Add a full-project preview link to a case study
+
+The full-project links are organised in one place near the top of `projects.js`, under the heading **FULL PROJECT LINKS — EDIT THIS SECTION TO ADD/CHANGE FILES**. Each entry uses the project ID as its key.
+
+Example:
+
+```js
+"the-wolf": {
+  url: "assets/projects/the-wolf-full-project.pdf",
+  label: "VIEW FULL PROJECT"
+},
+```
+
+To add a PDF stored in this repository:
+1. Create the folder `assets/projects/` if it does not exist.
+2. Add your PDF, using a simple filename such as `the-wolf-full-project.pdf`.
+3. Put its relative path in the matching `url` field in `projects.js`.
+4. Commit both the PDF and the code change.
+
+You can also paste a direct HTTPS URL to a PDF or a preview page that permits embedding. Leave `url: ""` until a project's file is ready; its button will appear automatically once you add a URL. The button is placed at the end of that project's case study and opens `file-viewer.html` in a new tab.
+
+### About download protection
+
+The custom viewer does not show its own download button and asks supported built-in PDF viewers to hide their toolbar. This is only a convenience, not secure download prevention. Because this is a public static GitHub Pages site, files placed in the repository are publicly accessible by URL. Visitors may still save a PDF, use browser tools, print, or take screenshots. Do not upload confidential originals or material you do not have permission to publish. For stronger access control, use a document-hosting service that supports authenticated viewers and disable download/print permissions there, or publish flattened, reduced-resolution preview copies.

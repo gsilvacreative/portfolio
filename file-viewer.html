@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F1A20">
+  <title>Project Preview — GSilva's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#0F1A20; --blue:#3F7CAC; --ice:#E9F1F7; --white:#FFFFFF; --line:#7893A6; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; width:100%; min-height:100%; background:var(--ink); color:var(--ice); font-family:Inter,Arial,sans-serif; }
+    .viewer-shell { min-height:100vh; display:flex; flex-direction:column; }
+    .viewer-header { min-height:66px; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px clamp(16px,4vw,48px); background:var(--ice); color:var(--ink); border-bottom:3px solid var(--blue); }
+    .viewer-brand { font:700 13px/1.3 "Space Grotesk",Arial,sans-serif; letter-spacing:.04em; }
+    .viewer-brand span { display:block; margin-top:3px; font:600 9px/1.3 "Space Grotesk",Arial,sans-serif; color:#607887; letter-spacing:.1em; }
+    .viewer-title { font:600 13px/1.4 "Space Grotesk",Arial,sans-serif; text-align:right; overflow-wrap:anywhere; }
+    .viewer-main { flex:1; min-height:0; display:flex; flex-direction:column; padding:clamp(10px,2vw,22px); gap:10px; }
+    .viewer-frame { flex:1; min-height:68vh; width:100%; border:1px solid var(--line); background:#27343C; box-shadow:0 8px 30px rgba(0,0,0,.25); }
+    .viewer-frame iframe { display:block; width:100%; height:100%; min-height:68vh; border:0; background:#27343C; }
+    .viewer-message { display:none; max-width:760px; margin:auto; padding:28px; color:var(--ink); background:var(--ice); line-height:1.6; }
+    .viewer-message h1 { font:700 20px/1.3 "Space Grotesk",Arial,sans-serif; }
+    .viewer-message p { font-size:14px; }
+    .viewer-footer { padding:10px clamp(16px,4vw,48px) 14px; color:#C0D1DC; font-size:11px; line-height:1.5; text-align:center; }
+    .viewer-footer a { color:#FFFFFF; }
+    @media (max-width:640px) { .viewer-header { align-items:flex-start; flex-direction:column; gap:7px; } .viewer-title { text-align:left; } .viewer-frame, .viewer-frame iframe { min-height:72vh; } }
+  </style>
+</head>
+<body>
+  <div class="viewer-shell">
+    <header class="viewer-header">
+      <div class="viewer-brand">GSILVA'S PORTFOLIO<span>PROJECT VIEWER / VIEWING COPY</span></div>
+      <div class="viewer-title" id="viewerTitle">Project preview</div>
+    </header>
+    <main class="viewer-main">
+      <div class="viewer-frame" id="viewerFrameWrap">
+        <iframe id="projectFrame" title="Full project preview" loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <section class="viewer-message" id="viewerMessage" role="status">
+        <h1>Project preview unavailable</h1>
+        <p id="viewerMessageText">A project file has not been configured yet. Add its URL in the FULL PROJECT LINKS section of projects.js.</p>
+        <p><a href="index.html">Return to the portfolio</a></p>
+      </section>
+    </main>
+    <footer class="viewer-footer">
+      <a href="index.html">Return to portfolio</a> · This page is intended for viewing. Browser-displayed content cannot be made completely copy-proof.
+    </footer>
+  </div>
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get("file");
+      const title = params.get("title") || "Project preview";
+      const titleNode = document.getElementById("viewerTitle");
+      const frame = document.getElementById("projectFrame");
+      const frameWrap = document.getElementById("viewerFrameWrap");
+      const message = document.getElementById("viewerMessage");
+      const messageText = document.getElementById("viewerMessageText");
+      titleNode.textContent = title;
+      document.title = `${title} — Project Preview`;
+
+      const showMessage = (text) => {
+        frameWrap.style.display = "none";
+        messageText.textContent = text;
+        message.style.display = "block";
+      };
+
+      if (!file) {
+        showMessage("No project file URL was supplied. Add the file path or URL in the FULL PROJECT LINKS section of projects.js.");
+      } else {
+        try {
+          const fileURL = new URL(file, window.location.href);
+          if (!/^https?:$/.test(fileURL.protocol)) throw new Error("Unsupported file URL.");
+          // Ask supported browser PDF viewers to hide their standard toolbar and side panel.
+          // This removes visible controls only; it does not prevent a determined visitor from saving the file.
+          const pdfOptions = new URLSearchParams(fileURL.hash.replace(/^#/, ""));
+          pdfOptions.set("toolbar", "0");
+          pdfOptions.set("navpanes", "0");
+          pdfOptions.set("scrollbar", "0");
+          pdfOptions.set("view", "FitH");
+          fileURL.hash = pdfOptions.toString();
+          frame.src = fileURL.href;
+        } catch (error) {
+          showMessage("The project file URL is invalid. Please check the URL in projects.js. Only normal HTTP or HTTPS links are supported.");
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
