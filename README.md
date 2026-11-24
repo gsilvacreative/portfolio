@@ -54,3 +54,7 @@ Windows can be dragged on desktop, minimised, maximised and closed. The taskbar 
 The project descriptions and cover art are starter/demo content. Replace them with accurate descriptions and work you are authorised to share. In particular, get permission before publishing employer or client work, and clearly distinguish personal work, commissioned work and collaborative work. Skill-bar values in the demo are illustrative; edit or remove them to represent your actual skills.
 
 This is an original retro-desktop-inspired interface, not an exact recreation of any commercial operating system or game.
+
+
+## Typography
+The updated interface uses **Space Grotesk** for headings and interface labels, and **Inter** for body copy. The retro character is retained through the desktop layout, pixel-inspired icon artwork, window controls and scanline treatment rather than hard-to-read display fonts. An internet connection is required to load the Google Fonts; system sans-serif fallbacks are included.
